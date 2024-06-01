@@ -11,12 +11,9 @@ export let options = {
 
 export default function () {
 	let headers = {
-		Authorization: "Basic YWRtaW46YWRtaW4=",
+		Authorization: "Basic encodedUsernameAndPassword",
 	};
-	let res = http.get(
-		"http://webserverloadbalancer-630383498.us-west-2.elb.amazonaws.com/db/admin/",
-		{ headers: headers }
-	);
+	let res = http.get("testingEndPoint", { headers: headers });
 	check(res, {
 		"status is 200": (r) => r.status === 200,
 	});
